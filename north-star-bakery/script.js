@@ -54,15 +54,17 @@ if (savedEmail) {
 }
 
 function validatePickupDate() {
+    const errorMessage = document.getElementById("pickup-date-error");
+    errorMessage.textContent = "";
     const pickupDate = document.getElementById("pickup-date").value;
     const today = new Date().toLocaleDateString("en-CA");
 
     if (!pickupDate) {
-        alert("Please select a pickup date.");
+        errorMessage.textContent = "Please select a pickup date.";
         return false;
     }
     if (pickupDate < today) {
-        alert("Pickup date cannot be in the past.");
+        errorMessage.textContent = "Pickup date cannot be in the past.";
         return false;
     }
     return true;
