@@ -28,5 +28,20 @@ form.addEventListener("submit", function(event) {
     if (!validateEmail()) {
         return;
 }
+
+localStorage.setItem("bakeryName", document.getElementById("name").value);
+localStorage.setItem("bakeryEmail", document.getElementById("email").value);
 alert("Your form looks good!");
 });
+
+const savedName = localStorage.getItem("bakeryName");
+
+if (savedName) {
+    document.getElementById("name").value = savedName;
+}
+
+const savedEmail = localStorage.getItem("bakeryEmail");
+
+if (savedEmail) {
+    document.getElementById("email").value = savedEmail;
+}
