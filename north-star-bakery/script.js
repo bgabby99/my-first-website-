@@ -32,6 +32,9 @@ form.addEventListener("submit", function(event) {
 if (!validatePickupDate()) {
     return;
 }
+if (!validateRequestType()) {
+    return;
+}
 
 localStorage.setItem("bakeryName", document.getElementById("name").value);
 localStorage.setItem("bakeryEmail", document.getElementById("email").value);
@@ -54,9 +57,22 @@ function validatePickupDate() {
     const pickupDate = document.getElementById("pickup-date").value;
     const today = new Date().toLocaleDateString("en-CA");
 
+    if (!pickupDate) {
+        alert("Please select a pickup date.");
+        return false;
+    }
     if (pickupDate < today) {
         alert("Pickup date cannot be in the past.");
         return false;
     }
     return true;
+}
+function validateRequestType() {
+    const requestType = document.getElementById("request-type");
+
+    if (requestType.value === "") {
+        alert("Please select a request type.");
+        return false;
+    }
+    return true; 
 }
