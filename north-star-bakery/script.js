@@ -29,6 +29,10 @@ form.addEventListener("submit", function(event) {
         return;
 }
 
+if (!validatePickupDate()) {
+    return;
+}
+
 localStorage.setItem("bakeryName", document.getElementById("name").value);
 localStorage.setItem("bakeryEmail", document.getElementById("email").value);
 alert("Your form looks good!");
@@ -44,4 +48,15 @@ const savedEmail = localStorage.getItem("bakeryEmail");
 
 if (savedEmail) {
     document.getElementById("email").value = savedEmail;
+}
+
+function validatePickupDate() {
+    const pickupDate = document.getElementById("pickup-date").value;
+    const today = new Date().toLocaleDateString("en-CA");
+
+    if (pickupDate < today) {
+        alert("Pickup date cannot be in the past.");
+        return false;
+    }
+    return true;
 }
