@@ -1,4 +1,5 @@
 const favorites = [];
+const productCategories = ["Breads", "Pastries", "Cakes"];
 
 const saveBreadButton = document.getElementById("save-bread");
 const savePastriesButton = document.getElementById("save-pastries");
@@ -6,30 +7,30 @@ const saveCakesButton = document.getElementById("save-cakes");
 const favoritesList = document.getElementById("favorites-list");
 
 saveBreadButton.addEventListener("click", function() {
-    if (favorites.includes("Breads")) {
-        favorites.splice(favorites.indexOf("Breads"), 1);
+    if (favorites.includes(productCategories[0])) {
+        favorites.splice(favorites.indexOf(productCategories[0]), 1);
     } else {
-        favorites.push("Breads");
+        favorites.push(productCategories[0]);
     }
         localStorage.setItem("bakeryFavorites", JSON.stringify(favorites));
         displayFavorites();
 });
 
 savePastriesButton.addEventListener("click", function() {
-    if (favorites.includes("Pastries")) {
-        favorites.splice(favorites.indexOf("Pastries"), 1);
+    if (favorites.includes(productCategories[1])) {
+        favorites.splice(favorites.indexOf(productCategories[1]), 1);
     } else {
-        favorites.push("Pastries");
+        favorites.push(productCategories[1]);
     }
         localStorage.setItem("bakeryFavorites", JSON.stringify(favorites));
         displayFavorites();
 });
 
 saveCakesButton.addEventListener("click", function() {
-    if (favorites.includes("Cakes")) {
-        favorites.splice(favorites.indexOf("Cakes"), 1);
+    if (favorites.includes(productCategories[2])) {
+        favorites.splice(favorites.indexOf(productCategories[2]), 1);
     } else {
-        favorites.push("Cakes");
+        favorites.push(productCategories[2]);
     }
         localStorage.setItem("bakeryFavorites", JSON.stringify(favorites));
         displayFavorites();
